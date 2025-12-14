@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Certificates_Platform.Routes
+namespace Certificates_Platform.Controllers
 {
        
 
@@ -10,7 +10,7 @@ namespace Certificates_Platform.Routes
         [HttpGet("test")]
         public IActionResult Test([FromQuery]int t)
         {
-            return Ok("API is working!" + t);
+            return Ok("API is bla!" + t);
         }
         [HttpGet("certificate")]
         public IActionResult Test()
