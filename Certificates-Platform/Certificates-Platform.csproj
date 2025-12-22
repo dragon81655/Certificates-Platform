@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <Folder Include="html\" />
+    <Folder Include="Routes\" />
   </ItemGroup>
 
   <ItemGroup>

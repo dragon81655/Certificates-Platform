@@ -2,14 +2,16 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Plataforma de Certificados</title>
+
 </head>
 <body>
     <form id="uploadForm">
         <input type="file" id="pdf" name="templatePdf" accept="application/pdf" />
         <input type="file" id="xlsx" name="dataXlsx" accept=".xlsx" />
-        <textarea id="config" placeholder="config JSON"></textarea>
         <button type="submit">Upload</button>
     </form>
+    <ul id="uploadedFiles"></ul>
 </body>
+<script src="javascript\apireqs.js"></script>
 </html>
