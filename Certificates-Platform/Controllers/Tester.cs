@@ -15,7 +15,7 @@ namespace Certificates_Platform.Controllers
         [HttpGet("test")]
         public IActionResult Test([FromQuery]int t)
         {
-            service.AddJob(null, null);
+            service.AddJob(0);
             return Ok("API is working!" + t);
         }
         [HttpPost("upload")]

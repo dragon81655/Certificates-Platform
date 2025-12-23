@@ -23,11 +23,23 @@ namespace Certificates_Platform.Services
                 availableIds.Enqueue(i);
             }
         }
-
-        public void AddJob(IFileProvider pdf, IFileProvider exel)
+        public int CreateFilesAndID(IFormFile pdfF, IFormFile exelF)
         {
-            int id = availableIds.Dequeue();
+            if(availableIds.Count == 0)
+            {
+                return -1;
+            }
 
+            string pdfN = Path.GetFileName(pdfF.FileName);
+            string exelN = Path.GetFileName(exelF.FileName);
+            int toReturn = availableIds.Dequeue();
+
+            pdfF.OpenReadStream().CopyTo(new FileStream($"{pdfN}", FileMode.Create));
+
+            return toReturn;
+        }
+        public void AddJob(int id)
+        {
             //GET PATH AND GEN FILES
 
             jobInfos.Add(new JobInfo
