@@ -2,9 +2,16 @@
 using ServiceRegistration;
 namespace Certificates_Platform.Services
 {
-    [RegisterAsScoped]
+    [RegisterAsSingleton]
     public class PathCreationService
     {
+        public string CreatePath(string path)
+        {
+            string[] segments = path.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+            return CreatePath(segments);
+        }
+
+
         public string CreatePath(params string[] segments)
         {
             string tempPath = Path.GetTempPath();

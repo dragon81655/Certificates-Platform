@@ -2,22 +2,24 @@
 using System.Reflection;
 namespace Certificates_Platform
 {
-    public interface IConfigurationLoader
-    {
-        public static abstract void LoadSettings(WebApplicationBuilder builder);
-    }
     public class GenerationSettings : IConfigurationLoader
     {
 
         public int maximumAmountOfProcesses { get; set; }
         public int forceScanvanger { get; set; }
+        public string pathToOutput { get; set; }
+
+        public int folderLifeTimeMinutes { get; set; }
 
         public static void LoadSettings(WebApplicationBuilder builder)
         {
             builder.Services.Configure<GenerationSettings>(builder.Configuration.GetSection("GenerationSettings"));
         }
     }
-
+    public interface IConfigurationLoader
+    {
+        public static abstract void LoadSettings(WebApplicationBuilder builder);
+    }
     public class RegisterOptions
     {
         public void Compose(WebApplicationBuilder builder, Assembly assembly)

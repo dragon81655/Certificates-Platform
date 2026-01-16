@@ -2,33 +2,29 @@ using Certificates_Platform;
 using ServiceRegistration;
 
 var builder = WebApplication.CreateBuilder(args);
-// Add services to the container.
 
-builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+// MVC + Views
+builder.Services.AddControllersWithViews();
+
+// Dependency Injection
 new RegisterOptions().Compose(builder, typeof(Program).Assembly);
 new RegisterServices(builder, typeof(Program).Assembly);
 
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseDeveloperExceptionPage();
 }
 
 app.UseHttpsRedirection();
-
+app.UseStaticFiles(); // for wwwroot
+app.UseRouting();
 app.UseAuthorization();
 
-app.UseDefaultFiles();
-
-app.UseStaticFiles();
-
-app.MapControllers();
+// ROUTE TO CONTROLLERS + VIEWS
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-
-

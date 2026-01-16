@@ -13,11 +13,12 @@
 
   <ItemGroup>
     <Folder Include="html\" />
+    <Folder Include="Python\" />
     <Folder Include="Routes\" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwRoot\index.html" />
+    <None Include="Views\Home\index.cshtml" />
   </ItemGroup>
 
 </Project>

@@ -15,13 +15,14 @@ namespace Certificates_Platform.Controllers
         [HttpGet("test")]
         public IActionResult Test([FromQuery]int t)
         {
-            service.AddJob(0);
             return Ok("API is working!" + t);
         }
         [HttpPost("upload")]
         public IActionResult UploadPdf([FromForm] IFormFile file)
         {
             Console.WriteLine(file.FileName);
+
+
             return Ok("Worked!");
         }
         [HttpGet("certificate")]

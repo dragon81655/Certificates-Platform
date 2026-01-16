@@ -1,0 +1,20 @@
+{
+  "template_path": "template_form.pdf",
+  "excel_path": "test_data.xlsx",
+
+  "excel_has_header": false,
+
+  "pdf_identifying_field": "Nome",
+
+  "fields": {
+    "Nome": { "source": "excel",  "column_index": 0 },
+    "data nascimento": { "source": "excel",  "column_index": 1 },
+    "bi n": { "source": "excel",  "column_index": 2 },
+    "data 2": { "source": "config",  "value": "18/10/25" },
+    "data 3": { "source": "config",  "value": "18/10/25" },
+    "xxx horas": { "source": "config",  "value": "06 Horas" },
+    "xxx horas 2": { "source": "config",  "value": "06 Horas" },
+
+    "curso": { "source": "config", "value": "Jornadas Técnicas de Arbitragem de Futebol 11" }
+  }
+}
